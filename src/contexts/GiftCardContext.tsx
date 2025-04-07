@@ -1,7 +1,6 @@
 import React, { createContext, useContext, useEffect, useReducer } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { GiftCard } from './types';
-import { showMessage } from 'react-native-flash-message';
+import { GiftCard } from '../screens';
 
 const GiftCardContext = createContext<any>(null);
 
@@ -34,21 +33,18 @@ export const GiftCardProvider = ({ children }: { children: React.ReactNode }) =>
     const addCard = (card: GiftCard) => {
         dispatch({ type: 'ADD_CARD', payload: card });
         persist([...cards, card]);
-        showMessage({ message: 'Gift card added successfully', type: 'success' });
     };
 
     const editCard = (card: GiftCard) => {
         const updated = cards.map(c => c.id === card.id ? card : c);
         dispatch({ type: 'EDIT_CARD', payload: card });
         persist(updated);
-        showMessage({ message: 'Gift card updated successfully', type: 'success' });
     };
 
     const deleteCard = (id: string) => {
         const updated = cards.filter(c => c.id !== id);
         dispatch({ type: 'DELETE_CARD', payload: id });
         persist(updated);
-        showMessage({ message: 'Gift card deleted', type: 'info' });
     };
 
     return (

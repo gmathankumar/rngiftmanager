@@ -4,46 +4,63 @@ export const commonStyles = StyleSheet.create({
     container: {
         flex: 1,
         padding: 16,
+        backgroundColor: 'rgb(255, 251, 255)', // From your theme
     },
     input: {
-        marginBottom: 12,
+        marginBottom: 16, // Slightly increased from 12
     },
     card: {
-        marginBottom: 10,
+        marginBottom: 12, // Slightly increased from 10
+        borderRadius: 12,
+        // Shadow styling moved to component-specific files for more control
     },
     fab: {
         position: 'absolute',
         right: 20,
         bottom: 20,
+        elevation: 6, // Increased elevation
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 3,
+        },
+        shadowOpacity: 0.27,
+        shadowRadius: 4.65,
     },
     segmented: {
-        marginBottom: 10,
+        marginBottom: 16, // Increased from 10
     },
     button: {
-        marginTop: 16,
+        marginTop: 24, // Increased from 16
+        paddingVertical: 8, // Added padding for better touch target
     },
     total: {
-        marginBottom: 10
+        marginBottom: 16, // Increased from 10
+        fontWeight: '600',
     },
     chipContainer: {
         flexDirection: 'row',
         flexWrap: 'wrap',
-        gap: 8,
+        gap: 10, // Increased from 8
+        marginBottom: 12, // Added margin bottom
     },
     chip: {
         borderWidth: 1,
         marginBottom: 8,
+        height: 36, // Explicit height for better touch target
     },
     searchBar:{
-        marginBottom: 12,
+        marginBottom: 16, // Increased from 12
     },
     textarea: {
-        minHeight: 80,
+        minHeight: 100, // Increased from 80
         textAlignVertical: 'top',
+        paddingTop: 12, // Added padding for text position
     }
 });
 
-export const generatedColor ={
+// No changes needed to generatedColor as it's already well defined
+export const generatedColor = {
     "colors": {
         "primary": "rgb(133, 83, 0)",
         "onPrimary": "rgb(255, 255, 255)",

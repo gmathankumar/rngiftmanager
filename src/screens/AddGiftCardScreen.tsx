@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { View } from 'react-native';
 import { TextInput, Button, SegmentedButtons, Snackbar } from 'react-native-paper';
-import { useGiftCards } from './GiftCardContext';
+import { useGiftCards } from '../contexts/GiftCardContext';
 import uuid from 'react-native-uuid';
-import { GiftCardStatus } from './types';
+import { GiftCardStatus } from '.';
 import { useNavigation } from '@react-navigation/native';
-import { commonStyles as styles } from '../../styles/commonStyles';
+import { commonStyles as styles } from '../styles/commonStyles';
 
 export default function AddGiftCardScreen() {
     const { addCard } = useGiftCards();
@@ -18,13 +18,11 @@ export default function AddGiftCardScreen() {
 
     const [snackbarVisible, setSnackbarVisible] = useState(false);
     const [snackbarMsg, setSnackbarMsg] = useState('');
-    const [isSuccess, setIsSuccess] = useState(false);
 
     const isValid = name.trim() !== '' && !isNaN(parseFloat(balance)) && parseFloat(balance) >= 0;
 
     const showError = (msg: string) => {
         setSnackbarMsg(msg);
-        setIsSuccess(false);
         setSnackbarVisible(true);
     };
 
@@ -41,17 +39,8 @@ export default function AddGiftCardScreen() {
             notes: notes.trim() || undefined,
             status,
         });
-
-        setSnackbarMsg('Gift card added successfully.');
-        setIsSuccess(true);
-        setSnackbarVisible(true);
+        navigation.goBack();
     };
-
-    useEffect(() => {
-        if (isSuccess && !snackbarVisible) {
-            navigation.goBack(); // Navigate only after snackbar closes
-        }
-    }, [snackbarVisible]);
 
     return (
         <View style={styles.container}>

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { View } from 'react-native';
 import { TextInput, Button, SegmentedButtons } from 'react-native-paper';
-import { useGiftCards } from './GiftCardContext';
+import { useGiftCards } from '../contexts/GiftCardContext';
 import { useRoute, useNavigation, RouteProp } from '@react-navigation/native';
-import { GiftCard, GiftCardStatus } from './types';
-import { commonStyles as styles } from '../../styles/commonStyles';
+import { GiftCard, GiftCardStatus } from './';
+import { commonStyles as styles } from '../styles/commonStyles';
 
 type ParamList = {
     EditGiftCard: { card: GiftCard };

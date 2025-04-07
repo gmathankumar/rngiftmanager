@@ -2,9 +2,9 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { MD3LightTheme as DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
-import {GiftCardProvider} from "./src/features/giftCards/GiftCardContext";
 import AppNavigator from "./src/navigation/AppNavigator";
-import {generatedColor} from "./src/styles/commonStyles"; // your navigation file
+import {generatedColor} from "./src/styles/commonStyles";
+import {GiftCardProvider} from "./src/contexts/GiftCardContext"; // your navigation file
 
 
 const theme = {

@@ -1,9 +1,8 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import GiftCardsScreen from '../features/giftCards/GiftCardsScreen';
-import AddGiftCardScreen from '../features/giftCards/AddGiftCardScreen';
-import EditGiftCardScreen from "../features/giftCards/EditGiftCardScreen";
-import IntroScreen from "../component/IntroScreen";
+import GiftCardsScreen from "../screens/GiftCardsScreen";
+import AddGiftCardScreen from "../screens/AddGiftCardScreen";
+import EditGiftCardScreen from "../screens/EditGiftCardScreen";
 
 export type RootStackParamList = {
     GiftCards: undefined;
@@ -14,8 +13,8 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export default function AppNavigator() {
     return (
-        <Stack.Navigator initialRouteName="Intro" >
-            <Stack.Screen name="Intro" component={IntroScreen} screenOptions={{ headerShown: false }} />
+        <Stack.Navigator initialRouteName="GiftCards" >
+            {/*<Stack.Screen name="Intro" component={IntroScreen}  />*/}
             <Stack.Screen name="GiftCards" component={GiftCardsScreen} />
             <Stack.Screen name="AddGiftCard" component={AddGiftCardScreen} options={{ title: 'Add Gift Card' }} />
             <Stack.Screen name="EditGiftCard" component={EditGiftCardScreen} />
